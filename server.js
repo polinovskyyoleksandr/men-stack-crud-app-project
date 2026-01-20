@@ -13,12 +13,20 @@ const bcrypt = require('bcrypt')
 
 const authController = require('./controlls/auth.js')
 
+const isSignedIn = require('./middleware/is-signed-in.js')
+const passUserToView = require('./middleware/pass-user-to-view.js')
+
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on('connected', () => {
     console.log(`Connected to MONGODB ${mongoose.connection.name}`)
 })
 
 app.use(express.urlencoded({ extended: false }))
+
+app.use(passUserToView)
+app.use('/auth', authController)
+app.use(isSignedIn)
+
 
 app.listen(port, () => {
     console.log(`This server is runnin on ${port}`)
