@@ -11,7 +11,7 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 
-const authController = require('./controlls/auth.js')
+const authController = require('./controllers/auth.js')
 
 const isSignedIn = require('./middleware/is-signed-in.js')
 const passUserToView = require('./middleware/pass-user-to-view.js')
@@ -22,9 +22,16 @@ mongoose.connection.on('connected', () => {
 })
 
 app.use(express.urlencoded({ extended: false }))
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+    })
+)
 
-app.use(passUserToView)
 app.use('/auth', authController)
+app.use(passUserToView)
 app.use(isSignedIn)
 
 
