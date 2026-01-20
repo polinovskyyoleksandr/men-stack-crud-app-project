@@ -11,6 +11,15 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 
+const authController = require('./controlls/auth.js')
+
+mongoose.connect(process.env.MONGODB_URI)
+mongoose.connection.on('connected', () => {
+    console.log(`Connected to MONGODB ${mongoose.connection.name}`)
+})
+
+app.use(express.urlencoded({ extended: false }))
+
 app.listen(port, () => {
     console.log(`This server is runnin on ${port}`)
 })
