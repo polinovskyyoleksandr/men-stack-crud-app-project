@@ -10,11 +10,11 @@
     <h1>Join us to get the best experience from music!</h1>
     <form action="/auth/sign-up" method="POST">
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username"/>
+        <input type="text" name="username" id="username" required/>
         <label for="pwd">Password: </label>
-        <input type="text" name="password" id="password"/>
+        <input type="text" name="pwd" id="pwd" required/>
         <label for="confirmPwd">Confirm password: </label>
-        <input type="text" name="confirmPwd" id="confirmPwd"/>
+        <input type="text" name="confirmPwd" id="confirmPwd" required/>
         <button type="submit">Sign-Up</button>
     </form>
     <h1>Do you have an account already?</h1>
