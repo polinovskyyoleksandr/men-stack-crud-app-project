@@ -5,9 +5,9 @@ const User = require('../models/user.js')
 
 router.get('/', async (req, res) => {
     try {
-        const user = await User.findById(req.session.user._id)
+        const user = await User.findById(req.params.userId)
         res.locals.favsongs = user.favsongs
-        res.render('songs/index.ejs'), {favsongs:user.favsongs}
+        res.render('favsongs/index'), {favsongs:user.favsongs}
     } catch (err) {
         console.log(err)
         res.redirect('/')

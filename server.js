@@ -32,11 +32,7 @@ app.use(
     })
 )
 
-app.get('/', (req, res) => {
-    res.render('index.ejs', {
-        user: req.session.user,
-    })
-})
+app.use(passUserToView)
 
 app.get('/', async (req, res) => {
   try {
@@ -68,11 +64,8 @@ app.get('/songs/genre/:genre', async (req, res) => {
   }
 })
 
-
-
 app.use('/auth', authController)
 app.use(methodOverride('_method'))
-app.use(passUserToView)
 app.use(isSignedIn)
 app.use('/user/:userId/songs', isSignedIn, favsongsController)
 
