@@ -10,11 +10,11 @@
         <h1>Music.app</h1>
         <a href="/">Home</a>
         <% if (user) { %>
-        <button href="/users/<%user._id%>/foods">Your favs.</button>
-        <button href="/auth/sign-out">Sign Out</button>
+        <a href="/users/<%user._id%>/foods">Your favs.</a>
+        <a href="/auth/sign-out">Sign Out</a>
         <% } else { %>
-        <button href="/auth/sign-in">SignIn</button>
-        <button href="/auth/sign-up">Sign Up</button>
+        <a href="/auth/sign-in">Sign In</a>
+        <a href="/auth/sign-up">Sign Up</a>
         <% } %>
     </nav>
     

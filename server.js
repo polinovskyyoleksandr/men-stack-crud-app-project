@@ -30,6 +30,12 @@ app.use(
     })
 )
 
+app.get('/', (req, res) => {
+    res.render('index.ejs', {
+        user: req.session.user,
+    })
+})
+
 app.use('/auth', authController)
 app.use(passUserToView)
 app.use(isSignedIn)
