@@ -12,6 +12,7 @@ const session = require('express-session')
 const bcrypt = require('bcrypt')
 
 const authController = require('./controllers/auth.js')
+const favsongsController = require('./controllers/favsongs.js')
 
 const isSignedIn = require('./middleware/is-signed-in.js')
 const passUserToView = require('./middleware/pass-user-to-view.js')
@@ -39,6 +40,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authController)
 app.use(passUserToView)
 app.use(isSignedIn)
+app.use('/user/:userId/songs', favsongsController)
 
 app.listen(port, () => {
     console.log(`This server is runnin on ${port}`)
