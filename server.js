@@ -40,7 +40,6 @@ app.use('/auth', authController)
 app.use(passUserToView)
 app.use(isSignedIn)
 
-
 app.listen(port, () => {
     console.log(`This server is runnin on ${port}`)
 })
