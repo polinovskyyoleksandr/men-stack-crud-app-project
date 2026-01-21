@@ -38,6 +38,38 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/', async (req, res) => {
+  try {
+    const songs = await Song.find()
+    res.render('index.ejs', { songs })
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+})
+
+app.get('/songs/artist/:artist', async (req, res) => {
+  try {
+    const songs = await Song.find({ artist: req.params.artist })
+    res.render('index.ejs', { songs })
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+})
+
+app.get('/songs/genre/:genre', async (req, res) => {
+  try {
+    const songs = await Song.find({ genre: req.params.genre })
+    res.render('index.ejs', { songs })
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+})
+
+
+
 app.use('/auth', authController)
 app.use(methodOverride('_method'))
 app.use(passUserToView)
