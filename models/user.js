@@ -1,11 +1,5 @@
 const mongoose = require('mongoose');
 
-const songSchema = new mongoose.Schema({
-    name: String,
-    artists: [artist],
-    genres: [genre]
-})
-
 const userSchema = mongoose.Schema ({
     username: {
         type: String,
