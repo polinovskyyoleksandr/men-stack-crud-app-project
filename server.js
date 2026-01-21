@@ -11,6 +11,7 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 
+const Song = require('./models/song.js')
 const authController = require('./controllers/auth.js')
 const favsongsController = require('./controllers/favsongs.js')
 

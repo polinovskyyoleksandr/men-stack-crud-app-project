@@ -7,6 +7,24 @@
 </head>
 <body>
     <%- include('./partials/_navbar.ejs') %>
+    <h1>Songs</h1>
+    <ul>
+        <% songs.forEach(song => { %>
+        <li>
+        <% song.title %>
+        <a href="/songs/artist/<%= song.artist %>"> <%= song.artist %> </a>
+        <a href="/songs/genre/<%= song.genre %>"> <%= song.genre %> </a>
+        <% if (user) { %>
+            <form action="/users/<%= user._id/songs" method="POST">
+                <input type="hidden" name="title" value="<%= song.title %>"/>
+                <input type="hidden" name="artist" value="<%= song.artist %>"/>
+                <input type="hidden" name="genre" value="<%= song.genre %>"/>
+                <button>Add to favs!</button>
+            </form>
+        <% } %>    
+        </li>
+        <% )} %>
+    </ul>
     
 </body>
 </html>
