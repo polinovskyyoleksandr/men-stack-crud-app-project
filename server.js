@@ -38,9 +38,10 @@ app.get('/', (req, res) => {
 })
 
 app.use('/auth', authController)
+app.use(methodOverride('_method'))
 app.use(passUserToView)
 app.use(isSignedIn)
-app.use('/user/:userId/songs', favsongsController)
+app.use('/user/:userId/songs', isSignedIn, favsongsController)
 
 app.listen(port, () => {
     console.log(`This server is runnin on ${port}`)

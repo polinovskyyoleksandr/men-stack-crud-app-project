@@ -5,14 +5,16 @@ const songSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    artist: [{
+    artist: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
-    }],
-    genre: [{
+    },
+    genre: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
-    }]
+    }
 })
 
-const Song = module.exports('Song', songSchema)
+const Song = mongoose.model('Song', songSchema)
+
+module.exports = Song

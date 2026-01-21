@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const songSchema = require('./song').schema
 
 const userSchema = mongoose.Schema ({
     username: {
         type: String,
         required: true,
     },
-    password: {
+    pwd: {
         type: String,
         required: true,
     },
