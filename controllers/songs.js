@@ -5,6 +5,14 @@ const Artist = require('../models/artist.js')
 const Genre = require('../models/genre.js')
 const isSignedIn = require('../middleware/is-signed-in')
 
+// index route 
+router.get('/', async (req, res) => {
+  const songs = await Song.find()
+  .populate('artist')
+  .populate('genre')
+  res.render('songs/index.ejs', {songs})
+})
+
 router.get('/new', isSignedIn, async (req, res) => {
   const artists = await Artist.find()
   const genres = await Genre.find()
@@ -16,20 +24,21 @@ router.post('/', isSignedIn, async (req, res) => {
   res.redirect('/')
 })
 
-// index route 
-router.get('/', async (req, res) => {
-  const songs = await Song.find().populate('Artist', 'Genre')
-  res.render('songs/index.ejs')
-})
 // edit
 router.get('/:id/edit', isSignedIn, async(req, res) => {
   const song = await Song.findById(req.params.id)
   const artists = await Artist.find()
   const genres = await Genre.find()
-  res.render('songs/edit.ejs', {song, artists, genres})
+  res.render('songs/new.ejs', {song, artists, genres})
 })
 
 // delete
+
+router.delete('/:id', isSignedIn, async (req, res) => {
+  await Song.findByIdAndUpdate(req.params.id)
+  res.redirect('/songs/index.ejs')
+})
+
 router.delete('/:id', isSignedIn, async (req, res) => {
   await Song.findByIdAndDelete(req.params.id)
   res.redirect('/songs/index.ejs')
