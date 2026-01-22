@@ -12,12 +12,11 @@
 <ul>
   <% songs.forEach(song => { %>
     <li>
-      <strong><%= song.title %></strong> –
-      <%= song.artist %> |
+      <%= song.title %> 
+      <%= song.artist %>
       <%= song.genre %>
-
-      <form action="/user/songs/<%= song._id %>?_method=DELETE" method="POST">
-        <button>Delete</button>
+      <form action="/users/<%= user._id %>/songs/<%= song._id %>?_method=DELETE" method="POST"></form>
+        <button type="submit">Delete</button>
       </form>
     </li>
   <% }) %>

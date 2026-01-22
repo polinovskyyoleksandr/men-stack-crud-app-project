@@ -25,23 +25,29 @@ router.post('/', isSignedIn, async (req, res) => {
 })
 
 // edit
+router.get('/:id', async (req, res) => {
+  const song = await Song.findById(req.params.id)
+    .populate('artist')
+    .populate('genre')
+
+  res.render('songs/new.ejs', { song })
+})
+
 router.get('/:id/edit', isSignedIn, async(req, res) => {
   const song = await Song.findById(req.params.id)
   const artists = await Artist.find()
   const genres = await Genre.find()
-  res.render('songs/new.ejs', {song, artists, genres})
+  res.render('songs/edit.ejs', {song, artists, genres})
 })
 
 // delete
 
 router.delete('/:id', isSignedIn, async (req, res) => {
-  await Song.findByIdAndUpdate(req.params.id)
-  res.redirect('/songs/index.ejs')
-})
 
-router.delete('/:id', isSignedIn, async (req, res) => {
-  await Song.findByIdAndDelete(req.params.id)
-  res.redirect('/songs/index.ejs')
+  await Song.findByIdAndUpdate(req.params.id, {
+      $pull: { favouritedByUsers: req.params.userId }
+    })
+  res.redirect('/favsongs.ejs')
 })
 
 module.exports = router
