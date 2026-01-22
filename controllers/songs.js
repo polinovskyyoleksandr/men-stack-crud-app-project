@@ -40,6 +40,16 @@ router.get('/:id/edit', isSignedIn, async(req, res) => {
   res.render('songs/edit.ejs', {song, artists, genres})
 })
 
+router.put('/:id', isSignedIn, async (req, res) => {
+  try {
+    await Song.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect('/favsongs')
+  } catch (err) {
+    console.log(err)
+    res.redirect('/songs')
+  }
+})
+
 // delete
 
 router.delete('/:id', isSignedIn, async (req, res) => {

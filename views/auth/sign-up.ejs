@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><Sign-Up></Sign-Up></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Musify</title>
 </head>
 <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="sign">
+    <div class="signText">
     <h1>Welcome.</h1>
     <h1>Join us to get the best experience from music!</h1>
-    <form action="/auth/sign-up" method="POST">
+    </div>
+    <form action="/auth/sign-up" method="POST" class="signForm">
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username" required/>
+        <input type="text" name="username" id="username" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;" class="input" required/>
         <label for="pwd">Password: </label>
-        <input type="password" name="pwd" id="pwd" required/>
+        <input type="password" name="pwd" id="pwd" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;" class="input" required/>
         <label for="confirmPwd">Confirm password: </label>
-        <input type="text" name="confirmPwd" id="confirmPwd" required/>
-        <button type="submit">Sign Up</button>
+        <input type="password" name="confirmPwd" id="confirmPwd" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;" class="input" required/>
+        <button type="submit" class="signBtn">Sign Up</button>
     </form>
+    <div class="signTextBottom">
     <h1>Do you have an account already?</h1>
-    <a href="/auth/sign-in">Sign In</a>
+    <a href="/auth/sign-in" class="link" id="signHref">Sign In</a>
+    </div>
+</div>
 </body>
 </html>

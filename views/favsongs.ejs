@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Musify</title>
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
@@ -15,6 +16,7 @@
       <%= song.title %> 
       <%= song.artist %>
       <%= song.genre %>
+      <a href="/songs/<%= song._id %>/edit">Edit</a>
       <form action="/users/<%= user._id %>/songs/<%= song._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
       </form>

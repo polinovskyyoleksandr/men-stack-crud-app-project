@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Shrikhand", serif;
+}
+
+body {
+  background-color: #cbddd1;
+}
+
+.shrikhand-regular {
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+nav {
+  font-family: "Shrikhand", serif;
+  background-color: #272727;
+  color: #f6f6e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+}
+
+.titlenav {
+  font-size: 45px;
+  letter-spacing: 5px;
+}
+
+.notlogged {
+  display: flex;
+  gap: 25px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #cbddd1;
+}
+
+.link {
+  color: transparent;
+  color: #f6f6e9; 
+}
+
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  font-size: 24px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.addsong {
+  background-color: #272727;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  width: 500px;
+  height: 250px;
+  color: #f6f6e9;
+}
+#addBtn {
+  color: #1f5014;
+  display: flex;
+  align-content: center;
+  padding-top: 10px;
+}
+.songsTitle {
+  color:#1f5014;
+  font-size: 50px;
+  padding-bottom: 10px;
+}
+
+.sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.signForm {
+  background-color: #1f5014;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:#f6f6e9;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.signTextBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#signHref {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #1f5014;
+}
+
+.input {
+  width: 300px;
+}
+
+.signBtn {
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 80px;
+  height: 30px;
+  border: black;
+}

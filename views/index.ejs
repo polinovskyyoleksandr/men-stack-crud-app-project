@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Musify</title>
 </head>
 <body>
     <%- include('./partials/_navbar.ejs') %>
-    <a href="/artists/new">Add new artist</a>
-    <a href="/genres/new">Add new genre</a>
-    <a href="/songs/new">Add new song</a>
-    <h1>Songs</h1>
+    <div class="homepage">
+    <div class="addsong">
+        <h2>Is your song missing?</h2>
+        <h2> Click here!</h2>
+    
+        <a href="/songs/new" class="link" id="addBtn">Add new song!</a>
+    </div>
+    <div class="songs">
+        <h1 class="songsTitle">Songs</h1>
     <ul>
         <% songs.forEach(song => { %>
         <li>
-        <%= song.title %>
-        <a href="/songs/artist/<%= song.artist %>"> <%= song.artist %> </a>
-        <a href="/songs/genre/<%= song.genre %>"> <%= song.genre %> </a>
+        <%= song.title %> - <%= song.artist %> - <%= song.genre %>
         <% if (user) { %>
             <form action="/users/<%= user._id %>/songs/<%= song._id %>" method="POST">
                 <button>Add to favs!</button>
@@ -25,6 +29,6 @@
         </li>
         <% }) %>
     </ul>
-    
+    </div>
 </body>
 </html>

@@ -29,6 +29,7 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected to MONGODB ${mongoose.connection.name}`)
 })
 
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(
     session({
@@ -54,6 +55,7 @@ app.get('/', async (req, res) => {
 app.use('/auth', authController)
 app.use(isSignedIn)
 
+app.use('/favsongs', isSignedIn, favsongsController)
 app.use('/users/:userId/songs', isSignedIn, favsongsController)
 app.use('/artists', isSignedIn, artistController)
 app.use('/genres', isSignedIn, genreController)
