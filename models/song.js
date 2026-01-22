@@ -7,10 +7,17 @@ const songSchema = new mongoose.Schema({
     },
     artist: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: 'Artist'
     },
     genre: {
         type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Genre'
+    },
+     createdBy: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User',
         required: true
     }
 })

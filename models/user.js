@@ -10,9 +10,10 @@ const userSchema = mongoose.Schema ({
         type: String,
         required: true,
     },
-    liked: {
-        favSongs: [songSchema]
-    }
+    favoriteSongs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Song'
+  }]
 })
 
 const User = mongoose.model('User', userSchema);

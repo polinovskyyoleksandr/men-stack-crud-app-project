@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Song</title>
+    <title>Add Artist</title>
 </head>
 <body>
     <%- include('./partials/_navbar.ejs') %>
-    <h1>New Song</h1>
-    <form action="/songs" method="POST">
-        <input name="title" placeholder="Title"/>
-        <input name="artist" placeholder="Artist"/>
-        <input name="genre" placeholder="Genre"/>
+    <h1>New Artist</h1>
+    <form action="/artists" method="POST">
+        <label for="name">Artist Name</label>
+        <input type="text" name="name" id="name"/>   
         <button type="submit">Add</button>
     </form>
     

@@ -7,6 +7,9 @@
 </head>
 <body>
     <%- include('./partials/_navbar.ejs') %>
+    <a href="/artists/new">Add new artist</a>
+    <a href="/genres/new">Add new genre</a>
+    <a href="/songs/new">Add new song</a>
     <h1>Songs</h1>
     <ul>
         <% songs.forEach(song => { %>
