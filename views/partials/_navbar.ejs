@@ -16,11 +16,11 @@
         <% if (user) { %>
         <div class="logged">
         <a href="/" class="link">Home</a>
-        <a href="/users/<%= user._id %>/songs" class="link">Your favs.</a>
+        <a href="/users/<%= user._id %>/songs" class="link">Your favs</a>
         <a href="/auth/sign-out" class="link">Sign Out</a>
         </div>
         <% } else { %>
-        <div class="notlogged">
+        <div class="logged">
         <a href="/" class="link">Home</a>
         <a href="/auth/sign-in" class="link">Sign In</a>
         <a href="/auth/sign-up" class="link">Sign Up</a>

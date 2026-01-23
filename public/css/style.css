@@ -33,7 +33,7 @@ nav {
   letter-spacing: 5px;
 }
 
-.notlogged {
+.logged {
   display: flex;
   gap: 25px;
   font-size: 20px;
@@ -56,6 +56,13 @@ nav {
   padding-right: 10px;
 }
 
+.addpage, .addsongspage, .updatesongspage {
+  font-size: 24px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
 .addsong {
   background-color: #272727;
   justify-content: center;
@@ -65,13 +72,15 @@ nav {
   height: 250px;
   color: #f6f6e9;
 }
+
 #addBtn {
   color: #1f5014;
   display: flex;
   align-content: center;
   padding-top: 10px;
 }
-.songsTitle {
+
+.songsTitle, .addSongsTitle {
   color:#1f5014;
   font-size: 50px;
   padding-bottom: 10px;
@@ -129,4 +138,27 @@ nav {
   width: 80px;
   height: 30px;
   border: black;
+}
+
+.card {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.updatecard {
+  padding: 10px;
+}
+
+.info {
+  background-color: red;
+}
+
+.favsBtn, .addBtn, .deleteBtn, .updateBtn {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-color: black;
+  text-align: center;
+  cursor: pointer;
 }

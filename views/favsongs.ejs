@@ -8,20 +8,20 @@
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
-    <h1>Your Favorite Songs</h1>
+  <div class="addsongspage">
+    <h1 class="songsTitle">Your Favorite Songs: </h1>
 
 <ul>
   <% songs.forEach(song => { %>
-    <li>
-      <%= song.title %> 
-      <%= song.artist %>
-      <%= song.genre %>
-      <a href="/songs/<%= song._id %>/edit">Edit</a>
+    <li class="card">
+      <%= song.title %> - <%= song.artist %> - <%= song.genre %>
+      <a href="/songs/<%= song._id %>/edit" class="link" id="editBtn" style="color: #1f5014;">Edit</a>
       <form action="/users/<%= user._id %>/songs/<%= song._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
+        <button type="submit" class="deleteBtn"> ➖ </button>
       </form>
     </li>
   <% }) %>
+</div>
 </ul>
 </body>
 </html>

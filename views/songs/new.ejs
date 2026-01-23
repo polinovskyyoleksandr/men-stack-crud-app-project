@@ -8,13 +8,12 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>New Song</h1>
-    <form action="/songs" method="POST">
-        <input name="title" placeholder="Title"/>
-        <input name="artist" placeholder="Artist"/>
-        <input name="genre" placeholder="Genre"/>
-        <button type="submit">Add</button>
+<div class="addpage">
+    <h1 class="addSongsTitle"> Add A New Song! </h1>
+    <form action="/songs" method="POST" class="card">
+        <input name="title" placeholder="Title"/> - <input name="artist" placeholder="Artist"/> - <input name="genre" placeholder="Genre"/>
+        <button type="submit" class="addBtn"> ➕ </button>
     </form>
-    
+</div>
 </body>
 </html>
