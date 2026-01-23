@@ -64,13 +64,9 @@ nav {
 }
 
 .addsong {
-  background-color: #272727;
-  justify-content: center;
+  padding-top: 10px;
   justify-items: center;
-  align-content: center;
-  width: 500px;
-  height: 250px;
-  color: #f6f6e9;
+  color: #272727;
 }
 
 #addBtn {
