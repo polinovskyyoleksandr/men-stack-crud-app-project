@@ -16,3 +16,5 @@ UNFINISHED PRODUCT
 Add a play button.
 Search by genre and artist.
 Searching bar.
+
+https://trello.com/b/00eMUAzX/la-mia-bacheca-di-trello
